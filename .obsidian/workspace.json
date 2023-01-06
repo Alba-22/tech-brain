@@ -4,18 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "e4fda51f05441fa6",
+        "id": "a467703451153c98",
         "type": "tabs",
         "children": [
           {
-            "id": "9ba9140e5f66a207",
+            "id": "3f5eba9531bd248e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Engenharia de Software/SOLID/01. Single Responsability Principle.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3819b4f01ee9f133",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Engenharia de Software/SOLID/02. Open-Closed Principle.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b244cf7105fc0fcb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Engenharia de Software/SOLID/03. Liskov Substituition Principle.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -81,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Engenharia de Software/SOLID/03. Liskov Substituition Principle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Engenharia de Software/SOLID/03. Liskov Substituition Principle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Engenharia de Software/SOLID/03. Liskov Substituition Principle.md"
+              }
             }
           },
           {
@@ -148,8 +181,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9ba9140e5f66a207",
+  "active": "b244cf7105fc0fcb",
   "lastOpenFiles": [
+    "Engenharia de Software/SOLID/02. Open-Closed Principle.md",
+    "Engenharia de Software/SOLID/01. Single Responsability Principle.md",
+    "_assets/Pasted image 20230105215703.png",
+    "Engenharia de Software/Untitled.md",
     "README.md",
     "2023-01-02.md"
   ]
