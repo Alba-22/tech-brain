@@ -1,3 +1,9 @@
 {
-  "attachmentFolderPath": "_assets"
+  "attachmentFolderPath": "./_assets",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "spellcheckLanguages": [
+    "en-US",
+    "pt-BR"
+  ]
 }
