@@ -21,3 +21,5 @@ Costumam ser usadas para aplicações mobile e IoT, sendo muito usadas pelo fato
 ![[Pasted image 20230108140518.png]]
 
 ## Relacional
+*Exemplos:* MySQL, PostgreSQL, SQLite, SQL Server.
+Utiliza do SQL(Structured Query Language) para manipulação dos dados.
