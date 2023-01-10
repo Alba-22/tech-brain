@@ -1,3 +1,4 @@
+#cheatsheet
 ### Firebase Analytics
 - Habilitar/desabilitar o Debug View no Android:
 ```

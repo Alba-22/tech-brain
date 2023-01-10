@@ -1,10 +1,11 @@
+#database
 ## Bancos Chave-Valor
 *Exemplos:* Redis, Memcache.
 Armazena dados numa estrutura chave e valor, assim como um JSON, Map, Dicionário, etc.
 Os dados estão na memória RAM, fazendo com que o espaço seja bem limitado, porém o acesso/escrita de dados é extremamente rápido. Além disso, não há como fazer queries, fazendo com que possam ser retornados apenas dados únicos.
 Extremamente útil para **cache**, filas de mensagens, pub/sub e criação de leaderboards.
 
-![](_assets/Pasted%20image%2020230108224638.png)
+![](/_assets/Pasted%20image%2020230108224638.png)
 
 ## Bancos Wide-Column
 *Exemplos:* Cassandra, Apache HBase.
@@ -13,7 +14,7 @@ Nisso que vem o conceito desse tipo de banco ser de família de colunas.
 Usa-se CQL(Cassandra Query Language) para fazer queries no banco. Como vantagem, não possui schema, porém também não consegue realizar joins. Além disso, é fácil de escalar e fácil de replicar os dados em múltiplos nós.
 Útil para escalar uma grande quantidade de registros ordenados por tempo e também para situações de muitas escritas e poucas leituras.
 
-![](_assets/Pasted%20image%2020230108224656.png)
+![](/_assets/Pasted%20image%2020230108224656.png)
 
 ## Bancos de Documentos
 *Exemplos:* MongoDB, Cloud Firestore, DynamoDB.
@@ -22,7 +23,7 @@ Documentos são agrupados em coleções. Campos em uma coleção podem ser index
 Com isso, leituras conseguem ser bem rápidas, já que todos os dados já estão no documento ou em uma sub-coleção. Porém, escrita e atualização de dados acaba sendo mais complexo. Por exemplo, em um caso em que há muitos dados desconectados, porém relacionados, e que são atualizados com muita frequencia, pode não ser uma boa usar um banco orientado a documentos.
 Costumam ser usadas para aplicações mobile e IoT, sendo muito usadas pelo fato de serem de uso geral e serem fáceis de usar do ponto de vista do desenvolvedor.
 
-![](_assets/Pasted%20image%2020230108224706.png)
+![](/_assets/Pasted%20image%2020230108224706.png)
 
 ## Bancos Relacionais
 *Exemplos:* MySQL, PostgreSQL, SQLite, SQL Server.
@@ -35,7 +36,7 @@ Os bancos relacionais também tem como base o conceito de ACID:
 - Isolação
 - Durabilidade
 
-![](_assets/Pasted%20image%2020230108224718.png)
+![](/_assets/Pasted%20image%2020230108224718.png)
 
 ## Bancos de Grafos
 *Exemplo:* neo4j
@@ -43,7 +44,7 @@ Nesse tipo de banco, os dados são representados como nós e as relações entre
 As queries são feitas por meio do Cypher, que possui statements mais concisos e legiveis, além de ter mais performance(especialmente em grandes conjuntos de dados).
 São utilizados em aplicaçõeas de detecção de fraudes, para grafos de conhecimento e engines de recomendação de conteúdo.
 
-![](_assets/Pasted%20image%2020230108224728.png)
+![](/_assets/Pasted%20image%2020230108224728.png)
 
 ## Bancos de Busca
 *Exemplos:* Elastic Search, Algolia, MeiliSearch.
@@ -51,7 +52,7 @@ Engines de busca de texto. Do ponto de vista de uso, elas são bem semelhantes a
 A diferença é que um banco de busca vai analisar todo o texto do documento e criar um índice de termos buscáveis, fazendo com que uma busca seja extremamente rápida, mesmo pra um banco com muitos registros. 
 O banco também pode executar vários algoritmos para ordernar os resultados das buscas. Porém isso pode fazer com que seja um pouco mais difícil de escalar, apesar de adicionar muito valor à experiência do usuário.
 
-![](_assets/Pasted%20image%2020230108224455.png)
+![](/_assets/Pasted%20image%2020230108224455.png)
 
 
 ## Banco Multi-Modelo

@@ -1,3 +1,15 @@
+## Princípios SOLID
+**S**: [Single Responsability Principle](Single%20Responsability%20Principle.md)
+
+**O**: [Open-Closed Principle](Open-Closed%20Principle.md)
+
+**L**: [Liskov Substituition Principle](Liskov%20Substituition%20Principle.md)
+
+**I**: [Interface Segregation Principle](Interface%20Segregation%20Principle.md)
+
+**D**: [Dependency Inversion Principle](Dependency%20Inversion%20Principle.md)
+
+## Links Úteis
 - https://balta.io/blog/dependency-injection
 - http://www.macoratti.net/11/07/ioc_di1.htm
 - https://balta.io/blog/clean-code

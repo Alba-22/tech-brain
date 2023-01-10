@@ -1,3 +1,4 @@
+#cheatsheet
 ### Remover branchs locais que não existem mais na origin
 ```shell
 git remote prune origin

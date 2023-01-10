@@ -1,3 +1,4 @@
+#cheatsheet
 ### Comandos pro processador M1
 - Usando Rosetta no terminal
 ```shell
