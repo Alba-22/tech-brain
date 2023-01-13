@@ -57,5 +57,10 @@ O banco também pode executar vários algoritmos para ordernar os resultados das
 
 ## Banco Multi-Modelo
 *Exemplos:* FaunaDB, CosmosDB.
-
+Usa-se GraphQL para descrever-se como se deseja acessar os dados. Cria collections que armazenam dados em um indice para que se possar fazer queries. Por de baixo dos panos, determina como usar melhor os diversos paradigmas a partir do código GraphQL provido.
 ![](_assets/Pasted%20image%2020230108224820.png)
+
+## Data Warehouses
+
+
+## Time-series
