@@ -2,7 +2,9 @@
 ## Introdução e Serviços
 A camada de transporte fornece serviços de comunicação diretamente aos processos de aplicação que rodam em diferentes hospedeiros. Os protocolos da camada de transporte fornecem **comunicação lógica** entre os processos dos hospedeiros que estão se comunicando. Ou seja, ele faz com que na visão da camada de aplicação, esses hospedeiros estejam diretamente conectados.
 A camada de transporte é implementada nos sistemas finais, de forma que ela converte as mensagens recebidas da aplicação em **segmentos da camada de transporte**. Na criação desses segmentos, divide-se as mensagens da camada de aplicação e adiciona-se um header a cada um deles.
+
 ![](/_assets/Pasted%20image%2020230114115723.png)
+
 A camada de transporte, então, passa o segmento pra camada de rede do remetente, que encapsula o segmento em um datagrama e envia ao destinatário.
 *OBS:* nesse processo, os roteadores que estiverem levando a mensagem não possuem a camada de transporte para examinar os campos do segmento.
 
@@ -21,9 +23,22 @@ Adicionalmente, o TCP fornece a **transferência confiável de dados**(para os p
 ## Multiplexação e Demultiplexação
 É a ampliação do serviço de entrega hospedeiro/hospedeiro da camada de rede para um serviço de entrega processo/processo.
 Na realidade, a camada de transporte não entrega os dados diretamente a um processo, mas sim a um socket intermediário, tendo cada socket um identificador exclusivo.
+
 ![](/_assets/Pasted%20image%2020230114125738.png)
+
 **Demultiplexação:** é realizado na extremidade receptora, entregando os dados contidos em um segmento da camada de transporte ao socket correto.
+
 **Multiplexação:** é realizado na extremidade de origem, reunindo os partes de dados provenientes de vários sockets, encapsulando essas partes em um header para criar segmentos e enviando os segmentos para a camada de rede.
 Em relação à interação segmento/socket, temos que as portas(dos sockets) tem identificadores exclusivos e que cada segmento tem campos especiais que indicam a porta para qual o segmento deve ser entregue.
+
 ![](/_assets/Pasted%20image%2020230114131525.png)
+
 Os campos especiais são: **campo de número de porta de origem** e **campo de número de porta de destino**. Cada número de porta é um valor de 16 bits entre 0 e 65535.
+### Multiplexação/Demultiplexação não orientada a conexão
+*Exemplo:* Enviando de um processo do hospedeiro A(cuja porta UDP é 19157) para um processo do hospedeiro B(cuja porta é 46428). No hospedeiro A, a camada de transporte cria o segmento com os dados, a porta de origem e a porta de destino e envia esse segmento pra camada de rede, que encapsulará isso em um datagrama IP e fará o melhor esforço possível pra entregar ao hospedeiro B.
+Se o segmento chegar em B, a camada de transporte dele irá analisar a porta de destino(46428) e entregará ao socket com aquela porta.
+O motivo de ser enviado junto a porta de origem, é para que se possa fazer uma comunicação "reversa" de B para A.
+
+![](/_assets/Pasted%20image%2020230114133852.png)
+
+### Multiplexação/Demultiplexação orientada a conexão

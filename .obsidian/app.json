@@ -1,7 +1,7 @@
 {
   "attachmentFolderPath": "_assets",
   "useMarkdownLinks": true,
-  "newLinkFormat": "relative",
+  "newLinkFormat": "absolute",
   "spellcheckLanguages": [
     "en-US",
     "pt-BR"
