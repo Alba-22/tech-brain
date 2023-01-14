@@ -20,6 +20,8 @@ A responsabilidade fundamental do UDP e TCP é ampliar o serviço de entre IP en
 Além disso, os dois protocolos fornecem **verificação de integridade** por incluirem campos de detecção de erros nos cabeçalhos de seus segmentos.
 Adicionalmente, o TCP fornece a **transferência confiável de dados**(para os processos dos sistemas finais) e o **controle de congestionamento**(que serve a Internet como um todo).
 
+
+---
 ## Multiplexação e Demultiplexação
 É a ampliação do serviço de entrega hospedeiro/hospedeiro da camada de rede para um serviço de entrega processo/processo.
 Na realidade, a camada de transporte não entrega os dados diretamente a um processo, mas sim a um socket intermediário, tendo cada socket um identificador exclusivo.
@@ -35,14 +37,15 @@ Em relação à interação segmento/socket, temos que as portas(dos sockets) te
 
 Os campos especiais são: **campo de número de porta de origem** e **campo de número de porta de destino**. Cada número de porta é um valor de 16 bits entre 0 e 65535.
 ### Multiplexação/Demultiplexação não orientada a conexão
-*Exemplo:* Enviando de um processo do hospedeiro A(cuja porta UDP é 19157) para um processo do hospedeiro B(cuja porta é 46428). No hospedeiro A, a camada de transporte cria o segmento com os dados, a porta de origem e a porta de destino e envia esse segmento pra camada de rede, que encapsulará isso em um datagrama IP e fará o melhor esforço possível pra entregar ao hospedeiro B.
-Se o segmento chegar em B, a camada de transporte dele irá analisar a porta de destino(46428) e entregará ao socket com aquela porta.
-O motivo de ser enviado junto a porta de origem, é para que se possa fazer uma comunicação "reversa" de B para A.
 O socket UDP é identificado por uma tupla de 2 elementos:
 ```
 (IP de destino, porta de destino)
 ```
 Assim, se 2 segmentos UDP tiverem IP de origem e/ou porta de origem diferentes, mas o mesmo IP de destino e mesma porta de destino, eles serão direcionados para o mesmo processo de destino por meio do socket.
+
+*Exemplo:* Enviando de um processo do hospedeiro A(cuja porta UDP é 19157) para um processo do hospedeiro B(cuja porta é 46428). No hospedeiro A, a camada de transporte cria o segmento com os dados, a porta de origem e a porta de destino e envia esse segmento pra camada de rede, que encapsulará isso em um datagrama IP e fará o melhor esforço possível pra entregar ao hospedeiro B.
+Se o segmento chegar em B, a camada de transporte dele irá analisar a porta de destino(46428) e entregará ao socket com aquela porta.
+O motivo de ser enviado junto a porta de origem, é para que se possa fazer uma comunicação "reversa" de B para A.
 
 ![](/_assets/Pasted%20image%2020230114133852.png)
 
@@ -52,3 +55,15 @@ O socket TCP é identificado por uma tupla de quatro elementos:
 (IP de origem, porta de origem, IP de destino, porta de destino)
 ```
 Dessa forma, quando um segmento TCP vindo da rede chega a um hospedeiro, o hospedeiro usa os 4 valores para demultiplexar o segmento para o socket correto. Com isso, 2 segmentos TCP chegando com IPs de origem diferentes e/ou portas diferentes, serão direcionados para 2 sockets diferentes.
+
+O hospedeiro servidor pode suportar vários sockets TCP simultâneos, sendo cada um ligado a um processo e identificado pela tupla de quatro elementos.
+
+*Exemplo:* Um hospedeiro C inicia duas sessões HTTP com o servidor B e o hospedeiro A inicia uma sessão HTTP com o servidor B. Todos os elementos possuem seus próprios IPs. O hospedeiro C atribui 2 números diferentes a porta de origem de suas conexões HTTP. Caso A escolha um número de porta de origem igual a de C, o servidor B ainda será capaz de demultiplexar as duas conexões com mesmo número de porta de origem, já que elas tem endereço IP de origem diferentes.
+
+![](/_assets/Pasted%20image%2020230114145446.png)
+
+### Varredura de Portas
+Uso do comando `nmap` para listar portas UDP e TCP em um dispositivo
+
+---
+## UDP: Transporte não orientado para conexão
