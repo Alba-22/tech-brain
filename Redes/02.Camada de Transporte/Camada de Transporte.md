@@ -19,3 +19,8 @@ Além disso, os dois protocolos fornecem **verificação de integridade** por in
 Adicionalmente, o TCP fornece a **transferência confiável de dados**(para os processos dos sistemas finais) e o **controle de congestionamento**(que serve a Internet como um todo).
 
 ## Multiplexação e Demultiplexação
+É a ampliação do serviço de entrega hospedeiro/hospedeiro da camada de rede para um serviço de entrega processo/processo.
+Na realidade, a camada de transporte não entrega os dados diretamente a um processo, mas sim a um socket intermediário, tendo cada socket um identificador exclusivo.
+![](_assets/Pasted%20image%2020230114125738.png)
+**Demultiplexação:** é realizado na extremidade receptora, entregando os dados contidos em um segmento da camada de transporte ao socket correto.
+**Multiplexação:** é realizado na extremidade de origem, reunindo os partes de dados provenientes de vários sockets, encapsulando essas partes em um header para criar segmentos e enviando os segmentos para a camada de rede.
