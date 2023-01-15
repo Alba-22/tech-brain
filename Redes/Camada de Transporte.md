@@ -101,4 +101,27 @@ O TCP é **orientado para conexão** pois, antes que um processo de aplicação 
 
 Uma conexão TCP também provê um **serviço full-duplex**, fazendo com que um processo A de um hospedeiro converse com o processo B de outro hospedeiro e de B para A ao mesmo tempo.
 
-A conexão TCP sempre é **ponto a ponto**: sempre um único remetente e um único destinatário.
+A conexão TCP sempre é **ponto a ponto**: sempre um único remetente e um único destinatário. Durante o estabelecimento de conexão, o cliente envia um segmento TCP especial para o servidor; o servidor responde com um segundo segmento TCP especial e, por fim, o cliente responde com um terceiro segmento(que pode conter dados). Esse procedimento é chamado de **3-way handshake**.
+
+Após o estabelecimento da conexão, os dois processo começam a enviar dados um para o outro. Ao enviar os dados pelo socket, o TCP do lado do cliente irá direcionar os dados para o **buffer de envio**. Aos poucos, os dados vão sendo retirados do buffer e passados à camada de rede. A quantidade máxima de dados que pode ser manipulada em um segmento é limitado pelo **tamanho máximo do segmento(MSS)**, que é definido de acordo com o tamanhho do maior quadro de camada de enlace que pode ser enviado pelo hospedeiro remetente. No recebimento do lado do servidor, os dados do segmento são colocados no **buffer de recepção**.
+
+![](/_assets/Pasted%20image%2020230115102632.png)
+
+### Estrutura do segmento TCP
+O segmento do TCP possui vários campos:
+- Os *números de porta* usados para multiplexação/demultiplexação
+- Campo de *checksum* para verificação de erros
+- Campos de *número de sequência* e *número de reconhecimento* de 32 bits, udados para execução do serviço confiável de transferência de dados.
+- Campo de *janela de recepção* de 16 bits para controle de fluxo.
+- Comprimento do cabeçalho de 4 bits
+- Campo de opções, usado quando remetente e destinatário negociam o MSS
+- Campo de flag de 6 bits
+
+![](/_assets/Pasted%20image%2020230115102911.png)
+
+### Número de sequência e reconhecimento
+O TCP vê os dados como uma cadeia de bytes não estrutura, mas ordenada. Assim, quando é necessário enviar uma série de segmentos, cada segmento recebe um número de sequência de acordo com o tamanho do conteúdo a ser enviado e do MSS.
+
+*Exemplo*: enviar um arquivo de 500.000 bytes, com MSS de 1.000 bytes. Serão criados 500 segmentos, o primeiro segmento terá o número 0, o segundo, 1.000, o terceiro 2.000, etc.
+
+O número de reconhecimento que um hospedeiro atribui a seu segmento é o número de sequência do próximo byte que ele estiver aguardando do outro hospedeiro.
