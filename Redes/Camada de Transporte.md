@@ -67,3 +67,38 @@ Uso do comando `nmap` para listar portas UDP e TCP em um dispositivo
 
 ---
 ## UDP: Transporte não orientado para conexão
+O transporte não ser orientado para conexão quer dizer que não há apresentação entre as entidades remetente e destinatária da camada de transporte antes de enviar um segmento.
+Algumas motivos para se preferir UDP em vez de TCP:
+- Melhor controle sobre quais dados são enviados e quando: UDP é mais simples e mais enxuto. Se a aplicação precisar de algo além do serviço de entrega de segmentos simples do UDP, ela pode implementar.
+- Não há estabelecimento de conexão: o UDP envia mensagens sem nenhuma preliminar formal, não possuindo atraso algum para estabelecer um conexão.
+- Não há estados de conexão: TCP possui buffers de envio e recebimento, parâmetros de controle de congestionamento e parâmetros de sequência e reconhecimento. UDP não tem isso, assim consegue suporta um número muito maior de clientes ativos.
+- Cabeçalho é menor
+
+### Estrutura do segmento UDP
+O UDP possui 4 campos, cada um possuindo 2 bytes:
+- Os *números de porta* permitem que o hospedeiro destinatário passe os dados ao processo correto.
+- O *comprimento* especifica o número de bytes total do segmento UDP
+- O *checksum* é usada pelo hospedeiro receptor para verificação de erros.
+
+![](/_assets/Pasted%20image%2020230115091018.png)
+
+### Checksum do segmento UDP
+É usada para determinar se bits dentro do segmento UDP foram alterados durante o trajeto da origem ao destino. O UDP no lado remetente realiza o complemento de 1 da soma de todas as palavras de 16 bits do segmento levando em conta o "vai um" em toda soma e coloca o resultado no campo *checksum*.
+
+No lado do destinatário, todas as palavras de 16 bits são somadas(incluindo o checksum). Se não houverem errros, todos os bits do resultado serão 1. Se algum erro aconteceu, então haverá algum bit 0 no resultado.
+
+Apesar de muitos protocolos da camada de enlace fazerem verificação de erros, o UDP também fornece esse serviço por não haver garantia de que todos os enlaces entre a origem e destino façam essa verificação. Além disso, quando um segmento é armazenado em um roteador, pode ocorrer a introdução de erros.
+
+---
+## Princípios da transferência confiável de dados
+- Resumo dos mecanismo de transferência confiável de dados e sua utilização:
+![](/_assets/Pasted%20image%2020230115093701.png)
+
+---
+## TCP: Transporte orientado para conexão
+### Serviços do TCP
+O TCP é **orientado para conexão** pois, antes que um processo de aplicação consiga enviar dados a outros, os dois processos precisam enviar alguns segmentos preliminares um a outro para estabelecer os parâmetros da transferência de dados. Nesse estabelecimento de conexão, ambas as partes iniciam muitas variáveis de estado. Além disso, a conexão TCP não é um circuito fim a fim, rodando apenas nos sistemas finais e não nos elementos intermediários(roteadores).
+
+Uma conexão TCP também provê um **serviço full-duplex**, fazendo com que um processo A de um hospedeiro converse com o processo B de outro hospedeiro e de B para A ao mesmo tempo.
+
+A conexão TCP sempre é **ponto a ponto**: sempre um único remetente e um único destinatário.
