@@ -26,12 +26,15 @@ ffmpeg -sseof -600 -i input.mp4 -c copy output5.mp4
 
 ffmpeg -sseof -00:10:00 -i input.mp4 -c copy output6.mp4
 ```
-- **-sseof**: seta o offset relativo ao EOF
+- **-sseof**: seta o offset relativo ao EOF(deve-se especificar o valor negativo)
 
 ### Cortando com re-encoding
-Pode-se especificar o formato para que o vídeo seja feito re-encoding. Esse processo levar mais tempo que se não for feito o re-encoding.
+É possível especificar o codec do vídeo/aúdio para um novo ou copiar o do vídeo atual. Caso se deseje especificar, o tempo de processamento será maior.
+- Para especificar o codec de vídeo: `-c:v libx264`
+- Para especificar o codec de aúdio: `-c:a aac`
+- Copiando o codec do vídeo original: `-c:a copy -c:v copy` ou `-c copy`
 ```bash
-ffmpeg -ss 00:05:20 -accurate_seek -i input.mp4 -t 00:10:00 -c:v libx264 -c:a aac output7.mp4
+ffmpeg -ss 00:05:20 -i input.mp4 -t 00:10:00 -c:v libx264 -c:a aac output7.mp4
 ```
 
 ## Especificando tempo
@@ -47,3 +50,4 @@ ffmpeg -i input.mkv -filter_complex "[0:a:0][0:a:1]amix=2:longest[aout]" -map 0:
 ffmpeg -i input.mkv -filter_complex "[0:a:0][0:a:1]amix=2:longest:weights=1 2[aout]" -map 0:V:0 -map "[aout]" -c:v copy -c:a aac -b:a 320k output.mkv
 ```
 https://www.reddit.com/r/ffmpeg/comments/gu5pc8/is_it_possible_to_merge_two_audio_tracks_in_a/
+
