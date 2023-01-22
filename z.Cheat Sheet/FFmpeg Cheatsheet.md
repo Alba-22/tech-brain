@@ -49,5 +49,6 @@ ffmpeg -i input.mkv -filter_complex "[0:a:0][0:a:1]amix=2:longest[aout]" -map 0:
 ```shell
 ffmpeg -i input.mkv -filter_complex "[0:a:0][0:a:1]amix=2:longest:weights=1 2[aout]" -map 0:V:0 -map "[aout]" -c:v copy -c:a aac -b:a 320k output.mkv
 ```
+No exemplo acima, está sendo aplicado o peso 1 na track 2.
 https://www.reddit.com/r/ffmpeg/comments/gu5pc8/is_it_possible_to_merge_two_audio_tracks_in_a/
 
