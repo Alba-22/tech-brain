@@ -61,3 +61,5 @@ Apesar disso não funcionar para filtrar as duas inequalidades, é possível fil
 ![](_assets/Pasted%20image%2020230129210504.png)
 
 Assim, o principal ponto para a velocidade na obtenção de dados no Cloud Firestore é a criação de índices de forma que os resultados que se esteja procurando estejam adjacentes uns aos outros na tabela de índices.
+
+## Listas e Maps vs Collections
