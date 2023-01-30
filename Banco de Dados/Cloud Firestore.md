@@ -63,3 +63,16 @@ Apesar disso não funcionar para filtrar as duas inequalidades, é possível fil
 Assim, o principal ponto para a velocidade na obtenção de dados no Cloud Firestore é a criação de índices de forma que os resultados que se esteja procurando estejam adjacentes uns aos outros na tabela de índices.
 
 ## Listas e Maps vs Collections
+1. Documentos tem limites:
+	- Um documento pode ter até 1MB de tamanho.
+	- No máximo 20.000 campos(o que inclui campos dentro de maps).
+	- Limite de uma escrita por segundo em um único documento(podem ocorrer falhas na escrita).
+2. Não é possível retornar um documento parcialmente, todos os campos dele serão retornados numa leitura.
+3. Queries são "rasas", ou seja, subcoleções de um documento não são retornadas na leitura de um documento.
+4. A cobrança é feita pelo número de leituras e escritas feitas.
+5. Arrays podem ser problemáticos em casos de alterações em simultâneo. Portanto, não é possível modificar, adicionar ou deletar um elemento de um array em posições específicas e nem buscar um valor em uma posição específica. O uso de array deve ser por meio de "contains".
+
+*Dica:* se o esperado é buscar por registros individuais de um grupo de dados, é melhor colocados em uma coleção, seja ela uma coleção raiz ou subcoleção de outra.
+
+## Como estruturar os dados
+ 

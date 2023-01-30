@@ -30,7 +30,7 @@ Costumam ser usadas para aplicações mobile e IoT, sendo muito usadas pelo fato
 A organização dos dados é feita em tabelas, em que cada linha é um registro e cada coluna representa um dados diferente de um registro. Em toda tabela, uma das colunas será a *Primary Key*, que será responsável por identificar unicamente um registro. 
 Além disso, outras coluna podem ser marcadas como *Foreign Keys*, que irão referenciar Primary Keys de outras tabelas. Com isso é possível fazer Join de duas ou mais tabela e unir dados diferentes em novos registros.
 Utilizando o SQL(Structured Query Language) para manipulação dos dados, os bancos relacionais exigem um schema para cada tabela, de forma que as colunas e seus tipos devem ser definidos a priori.
-Os bancos relacionais também tem como base o conceito de ACID:
+Os bancos relacionais também tem como base o conceito de [[ACID]]:
 - Atomicidade
 - Consistência
 - Isolação
