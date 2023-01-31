@@ -75,4 +75,33 @@ Assim, o principal ponto para a velocidade na obtenção de dados no Cloud Fires
 *Dica:* se o esperado é buscar por registros individuais de um grupo de dados, é melhor colocados em uma coleção, seja ela uma coleção raiz ou subcoleção de outra.
 
 ## Como estruturar os dados
- 
+Há sempre algumas abordagens a se considerar na modelagem:
+1. Colocar tudo em um único documento
+	- Pode chegar no limite de 1MB/20.000 campos se tiver listas/maps grandes
+	- Traz mais dados que o necessário de uma vez
+	- Útil quando se deseja ter alguns dados prontos para serem acessados com o documento 
+2. Criar uma subcoleção
+	- Divide melhor os dados de forma hierárquica
+	- Evita requisições muito grandes
+	- Podem ser mais custosos para atualizar com Cloud Functions
+	- Não necessita de indíce composto para algumas queries
+	- Mais fácil de escrever regras de segurança
+	- Melhor em casos que uma coleção depende muito de outra(uso de collectionGroup)
+3. Criar uma nova coleção raiz
+	- Irá ter os IDs de outras coleções que referencia
+	- Bom para busca de leitura e busca de atualização com Cloud Functions
+	- Pior em casos de queries de múltiplos campos, que requerem a criação de índices compostos
+	- Melhor em casos que duas coleções não se relacionam tanto
+4. Uso de arrays
+	- Bom para casos de flags em que se precisa obter se um valor está contido na lista
+	- Ruim em casos de flags se for necessário obter mais de um valor da lista
+5. Gerenciamento de permissões:
+	- Como não é possível retornar um documento parcial, não é ideal colocar num documento que vai ser lido pela aplicação cliente 
+	- Associar ID com a permissão ajuda na hora de escrever as regras de segurança
+	- Pode-se criar subcoleções para permissões(mas muito trabalhoso)
+	- Criar uma subcoleção privada com alguns campos que escondam permissões, relatórios, etc.
+6. No geral, se perguntar se será possível fazer queries para tudo que é necessário com aquela modelagem, já que o uso de indíces do NoSQL traz algumas limitações quando às queries que podem ser feitas.
+7. Sempre se perguntar se será possível fazer leituras boas pelas Cloud Functions para manter as desnormalizações sincronizadas.
+Em suma, veja o vídeo abaixo para vários exemplos:
+https://youtu.be/haMOUb3KVSo?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ
+
