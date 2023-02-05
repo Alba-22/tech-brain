@@ -39,3 +39,17 @@
 - Semelhante em JavaScript e C#
 - F7 e F8 para modificar tamanho da fonte
 - Documentação - F1
+- Tipos de dados
+	- String
+	- Real
+	- Bool
+- Convenção GML: snake case
+- Ativar Feather Messages pra exibir melhor erros, warnings e infos.
+- Função `string()`, converte de Real pra String
+- Region
+```
+#region ABC
+
+#endregion
+```
+
