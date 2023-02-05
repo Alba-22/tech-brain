@@ -32,3 +32,10 @@
 - Pode-se associar um sprite ao objeto
 - Atalho pra posicionar objeto: selecionar no menu direito e segurar `Alt` e clicar na room
 - O objeto posicionado na room é uma instância(relação classe/objeto de POO)
+- Eventos: coisas que acontecem no jogo
+- Eventos são adicionados no objeto, e não na instância 
+
+## GameMaker Language(GML)
+- Semelhante em JavaScript e C#
+- F7 e F8 para modificar tamanho da fonte
+- Documentação - F1
