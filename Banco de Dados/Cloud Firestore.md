@@ -105,3 +105,42 @@ Há sempre algumas abordagens a se considerar na modelagem:
 Em suma, veja o vídeo abaixo para vários exemplos:
 https://youtu.be/haMOUb3KVSo?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ
 
+## Regras de Segurança
+Filosofia: nunca confiar que a aplicação cliente está fazendo as coisas certo.
+As regras de segurança se aplicam aos documentos de coleções.
+Como a hierárquia de coleções pode ser muito grande, é possível fazer regras aninhadas. 
+As regras de segurança de uma coleção pai não se aplicam à coleção filho
+#### Wildcards
+- Em {}: wildcard de elemento único
+![](_assets/Pasted%20image%2020230205200450.png)
+- \*\*: resto do caminho do documento, ou seja, aplica a regra a todos os documentos da coleção e a todos os documentos das subcoleções. Regras escritas com essa wildcard sobrepoem a outras regras que afetam as subcoleções
+![](_assets/Pasted%20image%2020230205200744.png)
+
+#### Ações
+É necessário prover um valor booleano para cada ação específica. As ações são:
+- **GET**: quando o usuário requisita o documento específico
+- **LIST**: quando o usuário requisita uma query que pode retornar um documento específico
+- **CREATE**: criar um novo documento
+- **DELETE**: apagar um documento específico
+- **UPDATE**: atualizar um documento que já existe
+- **READ**: agrupa *GET* e *LIST*
+- **WRITE**: agrupa *CREATE*, *DELETE* e *UPDATE*
+
+#### Tomando decisão
+A lógica para decidir a se um conjunto de documentos vai estar visível ao usuário requisitante depende de 3 fatores:
+- A requisição de dados
+- O documento no banco que está sendo lido/modificado
+- Algum outro documento localizado no banco
+Na requisição, pode-se olhar 2 propriedades:
+- **Auth Object**: obtêm-se informações sobre o usuário logado(considerando o uso de FirebaseAuth). Geralmente pode-se confiar no usuário logado. Verificações:
+```
+request.auth != null
+request.auth.uid
+request.auth.token.email(verificar que apenas usuário de um determinado domínio conseguem acessar os dados)
+request.auth.token.email.matches('.*google[.]com$') && request.auth.toekn.email_verified;
+```
+- **Resource Object**: o campo `data` possui todos os campos do documento que o usuário está tentando escrever
+```
+request.resource.data.score
+request.resource.data["score"]
+```
