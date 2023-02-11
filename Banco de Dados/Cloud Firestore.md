@@ -1,3 +1,4 @@
+
 #database 
 
 ## Introdução
@@ -144,3 +145,26 @@ request.auth.token.email.matches('.*google[.]com$') && request.auth.toekn.email_
 request.resource.data.score
 request.resource.data["score"]
 ```
+
+#### Regras de Seguranças de Dados
+Pode ser usado para impor um certo schema de dados em documentos de uma coleção. Pode ser utilizado para garantir a segurança dentro dos dados em si, impossilitando, por exemplo, que um usuário se passe por outro.
+![](_assets/Pasted%20image%2020230211164133.png)
+
+#### Resource Object
+Objeto que representa um documento que já está no banco, que se está tentando ler/atualizar. **Não confundir com o request.resource**, este é o documento que se está tentando escrever.
+![](_assets/Pasted%20image%2020230211164927.png)
+
+Esse uso das regras de segurança pode ser problemático quando lendo uma lista de documentos. Se houver a chance de que ao ler todos os documentos haja conflito com uma regra de segurança, a query pode ser negada. Se for feito um where na query, pode ser que ela passe.
+Já no caso de ler um documento só, não há esse problema, já que o cloud firestore passará pelas regras de segurança normalmente.
+
+#### Funções
+Pode-se escrever funções para lógicas comuns nas regras de segurança. Essa funções devem ter apenas um return.
+
+## Paginação
+O Cloud Firestore tratará as queries como queries não relacionadas, mas que sabem o ponto em que a query anterior parou na busca de resultados.
+Primeiros resultados da busca:
+![](_assets/Pasted%20image%2020230211170835.png)
+A busca pela próxima "página" será feita com um método na query que indica os dados do último documento da página anterior:
+![](_assets/Pasted%20image%2020230211171028.png)
+Em vez de especificar alguns dados do último documento, pode-se também passar o documento em si, evitando que a busca paginada pule alguns dos dados.
+![](_assets/Pasted%20image%2020230211171303.png)
