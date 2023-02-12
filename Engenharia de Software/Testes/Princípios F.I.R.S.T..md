@@ -1,4 +1,4 @@
-#testes
+#software-engineering 
 São 5 princípios para o desenvolvimento de bons testes automatizados
 - **F**ast: o feedback deve ser rápido, ou seja, os testes sempre devem ser rodados após modificações na implementação do código. Para tal, é importante que os testes rodem rapidamente.
 - **I**solated: os testes devem ser isolados uns dos outros, isto é, independentes. Uma alteração em um teste não pode causar o outro teste a falhar.

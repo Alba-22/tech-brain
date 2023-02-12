@@ -1,4 +1,3 @@
-#solid
 > Depend on abstractions, not on concretions.
 
 Devemos depender de abstrações, e não de implementações

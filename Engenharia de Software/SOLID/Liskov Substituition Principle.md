@@ -1,4 +1,3 @@
-#solid
 > Derived classes must be substitutable for their base classes.
 
 Uma classe derivada deve ser substituível por sua classe base. Foi introduzido por Barbara Liskov, em 1987.
