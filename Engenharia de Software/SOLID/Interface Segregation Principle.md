@@ -1,3 +1,4 @@
+#solid
 > Make fine grained interfaces that are client specific.
 
 Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar, ou seja, é melhor criar interfaces mais específicas do que ter uma única interface genérica.

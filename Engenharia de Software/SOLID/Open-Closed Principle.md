@@ -1,3 +1,4 @@
+#solid
 > You should be able to extend a classes behavior, without modifying it.
 
 Objetos ou entidades devem estar abertos para extensão mas fechados pra modificação, ou seja, quando novos comportamentos e recursos precisam ser adicionados no software, devemos estender e não alterar o código fonte original.

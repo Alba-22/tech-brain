@@ -1,3 +1,4 @@
+#solid
 > A class should have one, and only one, reason to change.
 
 Uma classe deve ter somente um motivo pra mudar, sendo especializada em uma única tarefa.
