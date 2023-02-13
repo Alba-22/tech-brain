@@ -56,3 +56,34 @@ interface AccountRepository : JpaRepository<Account, Long> {
 
 ## Spring Testing
 Possui suporte para **testes unitários**, **testes de intergração** e conta com o **MockMVC**, que serve para simular requisições à um controller.
+A criação de um teste se dá com o uso da anotação *@Test* em uma função. Uma facilidade é usar uma string pro nome da função, utilizando a crase no Kotlin.
+```kotlin
+@Test  
+fun `Should return all banks`() {
+    mockMvc.get(baseUrl)  
+        .andDo { print() } // printa detalhes da requisição  
+        .andExpect {  
+            status { isOk() }  
+            content { contentType(MediaType.APPLICATION_JSON) }  
+            jsonPath("$[0].accountNumber") {  
+                value("1234")  
+            }  
+        }}
+```
+Uma outra utilidade é agrupar teste por seu contexto, o que pode ser feito por meio de algumas anotações
+```kotlin
+@Nested  
+@DisplayName("GET /api/banks")  
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)  
+inner class GetBanks {
+	// TESTES
+}
+```
+No caso de algum teste alterar o estado da aplicação, pode-se marcá-lo como "sujo", para que o Spring suba o contexto da aplicação novamente após a execução desse teste.
+```kotlin
+@Test
+@DirtiesContext  
+fun `Should delete an existing bank`() {  
+	// TESTE
+}
+```
