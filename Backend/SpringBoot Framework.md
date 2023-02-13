@@ -87,3 +87,11 @@ fun `Should delete an existing bank`() {
 	// TESTE
 }
 ```
+
+#### Usando setUp e tearDown
+Usar um property file para mudar o comportamento do JUnit no projeto:
+- `src/test/resources/junit-platform.properties`:
+```
+junit.jupiter.testinstance.lifecycle.default = per_class
+```
+Assim, pode-se usar as anotações *@BeforeAll* para o setUp dos testes, e a anotação *@AfterAll* para o tearDown.
