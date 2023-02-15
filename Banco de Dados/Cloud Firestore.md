@@ -168,3 +168,27 @@ A busca pela próxima "página" será feita com um método na query que indica o
 ![](_assets/Pasted%20image%2020230211171028.png)
 Em vez de especificar alguns dados do último documento, pode-se também passar o documento em si, evitando que a busca paginada pule alguns dos dados.
 ![](_assets/Pasted%20image%2020230211171303.png)
+
+## Cloud Functions
+Útil para manter uma mesma lógica em um lugar só, quando se tratando de múltiplas aplicações cliente em um mesmo projeto do Firebase, além de que qualquer alteração é colocada em produção em tempo real.
+São funções que ficam armazenadas na nuvem e são ativadas quando ocorrem alterações em documentos e/ou subcoleções. Também pode ser uma resposta para uma requisição HTTP(?)
+Existe o `Google Cloud Functions`, que é um serviço mais geral em cima dos produtos da Google e suporta várias linguagens, mas também há um wrapper em cima dele feito especificamente pro Firebase, que suporta apenas javascript.
+
+O funcionamento de uma Cloud Function é semelhante ao das Regras de Segurança, no sentido de interceptar a um dado a ser modificado no banco de dados. Assim, quando for feita alguma alteração em um documento e tiver uma cloud function observando aquilo, será possível ter os dados a serem escritos e modificá-los. Ao final da execução da Cloud Function, irá ser retornada uma `Promise` a ser executada:
+![](_assets/Pasted%20image%2020230215131244.png)
+
+Com as Cloud Functions, não estamos limitados a alterar apenas os dados vindos na requisição. Podemos também acessar qualquer outro documento do Cloud Firestore:
+![](_assets/Pasted%20image%2020230215131417.png)
+
+**ATENÇÃO**: deve-se tomar cuidado para não introduzir loops infinitos. No exemplo acima, o `snapshot.red.update` pode dar trigger na própria Cloud Function. Para evitar isso, fazer verificações de que os dados foram alterados.
+
+*Detalhe*: as regras de segurança não se aplicam às Cloud Functions, já que estas são executadas em um ambiente controlado e confiável.
+
+No GCP, cada função será executada em um Container separado.
+
+#### Peculiaridades das Cloud Functions
+1. Performance nem sempre será boa: a primeira execução é mais lenta por ter que subir todo o container no GCP(cold start).
+2. Variáveis global podem ser problemáticas: como as funções são executadas em ambientes isolados, não há como garantir que elas compartilhem um mesmo estado.
+3. Variáveis globais sempre são carregadas, o que inclui funções auxiliares e variáveis globais que referenciam libs. Solução: lazy load de o que for usado apenas em algumas Cloud Functions(fazer o import dentro da função em si)
+4. Ordem não é garantida, já que cada função é executada em um container separado.[Programação Defensiva](Programação%20Defensiva) é sugerida.
+5. As Cloud Functions podem duplicar eventos as vezes. Para tratativas, verificar o `context.eventID`.
