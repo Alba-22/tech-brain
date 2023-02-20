@@ -9,6 +9,8 @@ A programação defensiva é uma abordagem para melhorar o software e o código 
 
 O principal conceito quando programando defensivamente é considerar os problemas antes que eles surjam, criando código que é feito para lidar com qualquer cenário possível. A programação defensiva também sugere a eliminação de qualquer código desnecessário e a simplificação do código quando possível, justamente para diminuir as oportunidades de introdução de bugs.
 
+Apesar disso, a existência de checagens e tratamento de erros por si só não categoriza estar programando defensivamente. Assim, condições para checar se um valor é nulo, tratar falta de conexão de rede, tratar se um arquivo não foi encontrado por ter sido deletado e outras verificações de erros esperados não necessariamente são programar defensivamente.
+
 ## Categorias da Programação Defensiva
 #### Programação Segura
 É o subset da programação defensiva focado na segurança do software, de forma que, além de visar evitar bugs, também se motiva a reduzir a superfície de ataque. O programador deve assumir quer o software pode ser usado de forma indevida para encontrar bugs que podem ser explorados maliciosamente, como buffer overflow, SQL injection, dentre outros.
