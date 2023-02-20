@@ -28,3 +28,9 @@ O DBC estabelece que um programa deve fazer apenas o que ele se propõe a fazer,
 Problemas no funcionamento do software devem ser detectados o mais rápido possível, fazendo-o crashar em vez de continuar a rodar com os problemas, visto que a partir desse ponto, as informações podem não ser mais confiáveis.
 
 #### Assertive Programming
+Alguns autores recomendam o uso de asserções para verificar premissas e prevenir certas coisas de acontecerem, de forma que o programa deve parar sua execução ao chegar numa asserção inválida.
+
+#### Focar no agora
+Outra prática é focar em pequenas ações no curto prazo em vez de tomar o risco de tomar ações que levem muitos meses para se completar, além de evitar tentar adivinhar necessidades futuras dos usuários.
+
+
