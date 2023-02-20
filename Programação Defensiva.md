@@ -18,7 +18,7 @@ Apesar disso, a existência de checagens e tratamento de erros por si só não c
 #### Programação Ofensiva
 É uma categoria que enfatiza que certos erros não devem ser tratados defensivamente, ou seja, deve haver tolerância a falhas. Assim, apenas erros externos(como input do usuário) ao programa devem ser tratados e o software em si é tratado como algo mais confiável.
 
-Dessa forma, a programação ofensiva coloca que erros internos ao programa devem fazê-lo reportar os detalhes do erro e terminar de forma abrupta para o usuário, impedindo que o programa continue a funcionar após o dado erro.
+Dessa forma, a programação ofensiva coloca que na ocorrência de erros internos ao programa, deve-se haver o report desses erros e término abrupto do programa para o usuário, impedindo que o programa continue a funcionar após o dado erro.
 
 ## Técnicas de Programação Defensiva
 #### Design By Contract(DBC)
