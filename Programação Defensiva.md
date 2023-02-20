@@ -11,6 +11,8 @@ O principal conceito quando programando defensivamente é considerar os problema
 
 Apesar disso, a existência de checagens e tratamento de erros por si só não categoriza estar programando defensivamente. Assim, condições para checar se um valor é nulo, tratar falta de conexão de rede, tratar se um arquivo não foi encontrado por ter sido deletado e outras verificações de erros esperados não necessariamente são programar defensivamente.
 
+![](_assets/Pasted%20image%2020230220102844.png)
+
 ## Categorias da Programação Defensiva
 #### Programação Segura
 É o subset da programação defensiva focado na segurança do software, de forma que, além de visar evitar bugs, também se motiva a reduzir a superfície de ataque. O programador deve assumir quer o software pode ser usado de forma indevida para encontrar bugs que podem ser explorados maliciosamente, como buffer overflow, SQL injection, dentre outros.
@@ -33,4 +35,14 @@ Alguns autores recomendam o uso de asserções para verificar premissas e preven
 #### Focar no agora
 Outra prática é focar em pequenas ações no curto prazo em vez de tomar o risco de tomar ações que levem muitos meses para se completar, além de evitar tentar adivinhar necessidades futuras dos usuários.
 
+#### As 3 regras da segurança de dados
+- Todo dado é importante até que se prove o contrário
+- Todo dado é contaminado até que se prove o contrário
+- Todo código é inseguro até que se prove o contrário
 
+
+----
+# Resumindo
+Utilizando técnicas de programação defensiva/ofensiva deve-se:
+- **Defensa**: Tomar ações para prevenir problemas quando interagindo com o mundo externo,  tomando medidas antes que problemas inesperados aconteçam, para não deixar o software em um estado inválido e nem deixar brechas de segurança para invasores.
+- **Ataque**: Juntar infomações, crashar o quanto antes e reiniciar quando interagindo com as internalidades do software, para não permitir que o software execute em um estado inválido.
