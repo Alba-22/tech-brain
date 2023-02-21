@@ -31,11 +31,15 @@ Flip:
 - Vertical: *Shift + V*
 Seleção de Layers:
 - Com uma nova layer criada, pode-se dar *Ctrl + Click* no ícone da outra layer pra selecionar a outra layer inteira.
+Zoom: *Z*
+- Com a ferramenta de zoom, pode-se clicar e arrastar para os lado para dar zoom em um pixel especifico.
+Modo avançado: *Ctrl + F*, esconde alguns dos paineis
+
 
 ## Dicas
 #### Pixels Orfãos
 As vezes pode ser bom evitar, pois ao ver a imagem pequena a visibilidade não fica muito boa e vários deles pode ficar estranho. Porém, seu uso intencional pode ser muito benéfico.
-#### Desenhar contorno/silhuetas das formas
+#### Desenhar contorno/silhuetas das formas(Blocking)
 Criar o contorno do objeto a ser desenhado pode ajudar a imaginar a forma geral desse objeto para então ir sendo feito os ajustes.
 ![](_assets/Pasted%20image%2020230221121511.png)
 #### Combinação de Layers
@@ -47,3 +51,9 @@ Todos os sprites envolvidos na cena devem, no geral, seguir o mesmo estilo para 
 Cores são extremamente importantes. Duas opções para lidar com cores:
 - Entender teoria das cores
 - Usar paletas de cores prontas(lospec.com)
+#### Etapas na criação de pixel arts
+Uma possibilidade de etapas é:
+- Blocking
+- Shading
+- Coloring
+- Adding details 
