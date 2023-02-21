@@ -41,3 +41,9 @@ Criar o contorno do objeto a ser desenhado pode ajudar a imaginar a forma geral 
 #### Combinação de Layers
 Utilizando técnicas de seleção de layers, pode-se desenhar uma layer por cima de outra e alterar o modo da layer para se dar um efeito diferente
 ![](_assets/Pasted%20image%2020230221121310.png)
+#### Ser consistente com o estilo escolhido
+Todos os sprites envolvidos na cena devem, no geral, seguir o mesmo estilo para não gerar estranheza. Isso se aplica para elementos de arte como: contorno, sombras, iluminação, etc.
+#### Cores podem fazer arte brilhar ou ficar horrível
+Cores são extremamente importantes. Duas opções para lidar com cores:
+- Entender teoria das cores
+- Usar paletas de cores prontas(lospec.com)
