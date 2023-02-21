@@ -1,3 +1,4 @@
+#gamedev 
 ## Atalhos Aseprite
 Layer Panel: *TAB*
 - Selecionar várias layers: *Shift + Click*
