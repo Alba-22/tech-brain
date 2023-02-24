@@ -27,7 +27,7 @@ https://medium.com/@jmellodev/flutter-debug-por-wifi-435d508a09cf
 - Remover logs inúteis do Debug Console:
 Colocar o seguinte Regex no filtro do Debug Console
 ```
-!D/EGL_emulation, !D/InsetsController, !D/InputMethodManager, !I/ViewRootImpl, !W/RemoteInputConnectionImpl, !I/TextInputPlugin, !D/ViewRootImpl, !D/BLASTBufferQueue
+!D/EGL_emulation, !D/InsetsController, !D/InputMethodManager, !I/ViewRootImpl, !W/RemoteInputConnectionImpl, !I/TextInputPlugin, !D/ViewRootImpl, !D/BLASTBufferQueue, !I/IMM_LC, !I/InputMethodManager, !D/TrafficStats
 ```
 
 ### Configuração do Crashlytics
