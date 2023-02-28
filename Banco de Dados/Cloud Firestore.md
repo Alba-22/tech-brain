@@ -180,7 +180,7 @@ O funcionamento de uma Cloud Function é semelhante ao das Regras de Segurança,
 Com as Cloud Functions, não estamos limitados a alterar apenas os dados vindos na requisição. Podemos também acessar qualquer outro documento do Cloud Firestore:
 ![](_assets/Pasted%20image%2020230215131417.png)
 
-**ATENÇÃO**: deve-se tomar cuidado para não introduzir loops infinitos. No exemplo acima, o `snapshot.red.update` pode dar trigger na própria Cloud Function. Para evitar isso, fazer verificações de que os dados foram alterados.
+**ATENÇÃO**: deve-se tomar cuidado para não introduzir loops infinitos. No exemplo acima, o `snapshot.ref.update` pode dar trigger na própria Cloud Function. Para evitar isso, fazer verificações de que os dados foram alterados.
 
 *Detalhe*: as regras de segurança não se aplicam às Cloud Functions, já que estas são executadas em um ambiente controlado e confiável.
 
