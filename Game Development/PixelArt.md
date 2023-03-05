@@ -40,7 +40,8 @@ Modo avançado: *Ctrl + F*, esconde alguns dos paineis
 #### Pixels Orfãos
 As vezes pode ser bom evitar, pois ao ver a imagem pequena a visibilidade não fica muito boa e vários deles pode ficar estranho. Porém, seu uso intencional pode ser muito benéfico.
 #### Desenhar contorno/silhuetas das formas(Blocking)
-Criar o contorno do objeto a ser desenhado pode ajudar a imaginar a forma geral desse objeto para então ir sendo feito os ajustes.
+Diferente da ilustração tradicional, a pixelart se assemelha muito mais a um processo de esculpir do que fazer traços.
+Assim, um bom começo é criar o contorno do objeto a ser desenhado pode ajudar a imaginar a forma geral desse objeto para então ir sendo feito os ajustes.
 ![](_assets/Pasted%20image%2020230221121511.png)
 #### Combinação de Layers
 Utilizando técnicas de seleção de layers, pode-se desenhar uma layer por cima de outra e alterar o modo da layer para se dar um efeito diferente
@@ -57,3 +58,11 @@ Uma possibilidade de etapas é:
 - Shading
 - Coloring
 - Adding details 
+#### Curvas
+**Jeg:** curva mal suavizada
+**Double:** quando se tem um pixel ligando duas partes da uma curva
+![](_assets/Pasted%20image%2020230305090135.png)
+**Suavização:** Sempre preferir um aumento gradual no número de pixels de uma curva.
+![](_assets/Pasted%20image%2020230305085906.png)
+#### Sombras
+**HUE Shifting**: ao buscar uma cor pra sombra, deve-se pegar a cor original, escurecê-la um pouco e modificar o HUE pra alguma cor adjacente.
