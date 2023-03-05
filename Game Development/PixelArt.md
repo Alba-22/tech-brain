@@ -35,6 +35,7 @@ Zoom: *Z*
 - Com a ferramenta de zoom, pode-se clicar e arrastar para os lado para dar zoom em um pixel especifico.
 Modo avançado: *Ctrl + F*, esconde alguns dos paineis
 
+https://blog.studiominiboss.com/pixelart
 
 ## Dicas
 #### Pixels Orfãos
